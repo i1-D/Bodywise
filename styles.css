@@ -480,6 +480,22 @@ a:hover {
   padding: 0;
 }
 
+.footer__follow {
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translate(-50%, -50%)  rotate(-6.583deg);
+  margin: 0;
+  font-family: 'Edosz', cursive;
+  font-size: clamp(3rem, 5vw, 7rem);
+  font-weight: normal;
+  font-style: normal;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .footer__social {
   position: relative;
   z-index: 1;
@@ -491,7 +507,8 @@ a:hover {
 
 .footer__social-btn {
   display: flex;
-  align-items: center;
+  align-items: end;
+  padding-bottom: 32px;
   justify-content: center;
   width: 20.833vw;
   height: 20.833vw;
@@ -510,7 +527,8 @@ a:hover {
 }
 
 .footer__social-label {
-  font-size: 4rem;
+  font-family: var(--font-follow);
+  font-size: 8rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
