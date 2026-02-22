@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phive — It's not just fitness. It's living fully</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__bar">
+      <button type="button" class="header__icon-btn header__menu-btn" aria-label="Open menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <a href="#" class="logo">Body Wisdom</a>
+      <a href="https://join.phive.pt/" class="header__icon-btn header__join-btn" aria-label="Join Phive" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: video background -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__video-wrap">
+        <video class="hero__video" src="images/home_hero_video.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <h1 class="hero__title">Body Wisdom</h1>
+        <p class="hero__subtitle">Sculpt Your Body, Elevate Your Spirit</p>
+        <a href="" class="hero__link" target="_blank" rel="noopener">Join Body Wisdom</a>
+      </div>
+    </section>
+
+    <!-- Train every day marquee -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+        <span class="marquee__text">Train every day</span>
+      </div>
+    </section>
+
+    <!-- Clubs: pinned section, 10x4 grid, images move to stacked center on scroll -->
+    <section class="clubs" id="clubs">
+      <div class="clubs__pin">
+        <div class="clubs__images" aria-hidden="true">
+          <div class="clubs__grid">
+            
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club2.jpg" alt="" /></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club1.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club4.jpg" alt="" /></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club3.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club5.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club6.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club6.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club1.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club4.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club3.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club5.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club2.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell clubs__cell--img" data-club-img><img src="images/club1.jpg" alt="" /></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+            <div class="clubs__cell"></div>
+          </div>
+        </div>
+        <div class="clubs__content">
+          <h2 class="clubs__title">Body Wisdom</h2>
+          <p class="clubs__subtitle">Choose your club</p>
+          <div class="clubs__cta">
+            <a href="#visit" class="clubs__link">Schedule a visit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you can find at Phive Clubs -->
+    <section class="features" id="fitness-hub">
+      <table class="features__table">
+        <thead>
+          <tr>
+            <th colspan="5">What you can find at Body Wisdom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Heated Indoor Swimming Pool</td>
+            <td>Sauna, Turkish Bath and Jacuzzi</td>
+            <td>Weight and cardio room</td>
+            <td>Private Pilates Studio</td>
+            <td>Group Classes</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

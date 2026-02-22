@@ -1,0 +1,13 @@
+{
+  "name": "bodywise",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Body Wisdom - static site",
+  "scripts": {
+    "start": "live-server . --open=/",
+    "dev": "live-server . --open=/"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
