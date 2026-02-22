@@ -10,7 +10,6 @@
   --features-border: #299B8E;
   --features-text: #FFFFFF;
   --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
@@ -38,7 +37,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 16px;
   line-height: 1.5;
   color: var(--color-text);
@@ -402,6 +401,97 @@ a:hover {
   }
 }
 
+/* Footer — Figma design: tagline, 3 social circles, CTA */
+.footer {
+  background: #000;
+  padding: var(--space-3xl) var(--space-lg);
+  text-align: center;
+  gap: var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 0 auto var(--space-2xl) auto;
+}
+
+.footer__tagline-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin: 0 0 -30px 0;
+  padding: 0;
+}
+
+.footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2xl);
+}
+
+.footer__social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20.833vw;
+  height: 20.833vw;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: transform var(--transition-smooth);
+  overflow: hidden;
+}
+
+.footer__social-btn:hover {
+  transform: scale(1.06) rotate(20deg);
+  border: 6px solid var(--color-primary);
+}
+
+.footer__social-label {
+  font-size: 4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  transition: transform var(--transition-smooth);
+}
+
+.footer__social-btn:hover .footer__social-label {
+  transform: rotate(-20deg);
+}
+
+.footer__social-btn--insta {
+  background-image: url('images/insta_bg.jpg');
+  margin-top: 72px;
+}
+
+.footer__social-btn--fb {
+  background-image: url('images/fb_bg.jpg');
+}
+
+.footer__social-btn--yt {
+  background-image: url('images/yt_bg.jpg');
+  margin-top: 72px;
+}
+
+.footer__cta {
+  font-size: clamp(1rem, 4vw, 5rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .header {
@@ -435,5 +525,10 @@ a:hover {
   .clubs__link {
     padding: var(--space-sm) var(--space-md);
     font-size: 0.85rem;
+  }
+
+  .footer__social-btn {
+    width: 5rem;
+    height: 5rem;
   }
 }
