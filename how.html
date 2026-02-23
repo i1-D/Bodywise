@@ -11,23 +11,146 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link rel="preload" as="font" href="fonts/edosz.woff2" crossorigin>
   <link rel="preload" as="font" href="fonts/moon_walk.woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/DejaVuSans-Bold.woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="page-hero">
-      <h1 class="page-hero__title">How we do it</h1>
-      <p class="page-hero__lead">Our approach to fitness and your journey.</p>
+    <!-- Hero: background image + title -->
+    <section class="how-hero">
+      <h1 class="how-hero__title">Push Your Limits!</h1>
     </section>
-    <section class="page-content">
-      <p>We combine expert coaching, modern facilities and a supportive community so you can train in a way that works for you.</p>
+
+    <!-- Horizontal slider: alternating content card + image card -->
+    <section class="how-slider-section" id="how-slider-section">
+      <div class="swiper how-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="how-card how-card--content">
+              <h2 class="how-card__header">01 Header</h2>
+              <p class="how-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--image">
+              <img src="images/club1.jpg" alt="Training" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--content">
+              <h2 class="how-card__header">02 Header</h2>
+              <p class="how-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--image">
+              <img src="images/club2.jpg" alt="Gym" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--content">
+              <h2 class="how-card__header">03 Header</h2>
+              <p class="how-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--image">
+              <img src="images/club3.jpg" alt="Gym" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--content">
+              <h2 class="how-card__header">04 Header</h2>
+              <p class="how-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--image">
+              <img src="images/club4.jpg" alt="Gym" />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--content">
+              <h2 class="how-card__header">05 Header</h2>
+              <p class="how-card__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="how-card how-card--image">
+              <img src="images/club5.jpg" alt="Gym" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="how-tagline">Sculpt Your Body,<br> Elevate Your <span class="how-tagline__accent">Spirit</span></p>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
 
   <script src="includes.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.min.js"></script>
+  <script>
+    (function () {
+      var howSwiper = null;
+
+      function initHowSwiper() {
+        if (!document.querySelector('.how-swiper') || !window.Swiper) return;
+        if (howSwiper) return;
+        howSwiper = new window.Swiper('.how-swiper', {
+          slidesPerView: '4',
+          spaceBetween: 24,
+          loop: false,
+          breakpoints: { 640: { spaceBetween: 32 }, 1024: { spaceBetween: 40 } }
+        });
+        initHowScrollCapture();
+      }
+
+      function initHowScrollCapture() {
+        var section = document.getElementById('how-slider-section');
+        if (!section || !howSwiper) return;
+
+        var sliderInFocus = false;
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              sliderInFocus = entry.isIntersecting;
+            });
+          },
+          { threshold: 0.4, rootMargin: '0px' }
+        );
+        observer.observe(section);
+
+        function onWheel(e) {
+          if (!sliderInFocus || !howSwiper) return;
+          var delta = e.deltaY;
+          if (delta > 0) {
+            if (!howSwiper.isEnd) {
+              e.preventDefault();
+              howSwiper.slideNext();
+            }
+          } else if (delta < 0) {
+            if (!howSwiper.isBeginning) {
+              e.preventDefault();
+              howSwiper.slidePrev();
+            }
+          }
+        }
+
+        document.addEventListener('wheel', onWheel, { passive: false });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHowSwiper);
+      } else {
+        initHowSwiper();
+      }
+      document.addEventListener('includesLoaded', initHowSwiper);
+    })();
+  </script>
 </body>
 </html>
