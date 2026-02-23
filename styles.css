@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Edosz';
-  src: url('fonts/Edosz.woff2') format('woff2'),
-       url('fonts/Edosz.woff') format('woff');
+  src: url('fonts/edosz.woff2') format('woff2'),
+       url('fonts/edosz.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
   font-family: 'Moon_walk';
-  src: url('fonts/Moon_walk.woff2') format('woff2'),
-       url('fonts/Moon_walk.woff2') format('woff');
+  src: url('fonts/moon_walk.woff2') format('woff2'),
+       url('fonts/moon_walk.woff2') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
