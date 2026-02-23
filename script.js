@@ -171,11 +171,14 @@
     document.querySelectorAll('.tagline-wrap').forEach(function (el) { observer.observe(el); });
   }
 
+  /* Run tagline/follow inits as soon as script runs (footer is already injected by includes.js).
+     On inner pages, window "load" can fire before this script runs, so we must not rely on it. */
+  initFollowChars();
+  initTaglineLine();
+  initTaglineInView();
+
   window.addEventListener('load', function () {
     onScroll();
-    initFollowChars();
-    initTaglineLine();
-    initTaglineInView();
     requestAnimationFrame(function () {
       initClubsImages();
       updateClubsProgress();

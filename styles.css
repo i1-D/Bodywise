@@ -788,16 +788,16 @@ a:hover {
 }
 
 .footer__social-btn--insta {
-  background-image: url('images/insta_bg.jpg');
+  background-image: url('images/insta_bg.webp');
   margin-top: 72px;
 }
 
 .footer__social-btn--fb {
-  background-image: url('images/fb_bg.jpg');
+  background-image: url('images/fb_bg.avif');
 }
 
 .footer__social-btn--yt {
-  background-image: url('images/yt_bg.jpg');
+  background-image: url('images/yt_bg.webp');
   margin-top: 72px;
 }
 
@@ -848,4 +848,36 @@ a:hover {
     width: 5rem;
     height: 5rem;
   }
+}
+
+/* Inner pages (about, contact, blog, how) */
+.page-hero {
+  padding: calc(var(--header-height, 72px) + var(--space-2xl)) var(--space-lg) var(--space-2xl);
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm);
+}
+
+.page-hero__lead {
+  font-size: 1.125rem;
+  color: var(--color-text-muted, rgba(255, 255, 255, 0.8));
+  margin: 0;
+}
+
+.page-content {
+  padding: var(--space-lg);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.page-content p {
+  margin: 0 0 var(--space-md);
+  line-height: 1.6;
 }

@@ -14,41 +14,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header" id="header">
-    <div class="header__overlay" id="header-overlay" aria-hidden="true"></div>
-    <div class="header__wrap">
-      <nav class="header__nav" id="header-nav" aria-label="Main" aria-hidden="true">
-        <a href="#" class="header__nav-link">Homepage</a>
-        <a href="#clubs" class="header__nav-link">About Us</a>
-        <a href="#fitness-hub" class="header__nav-link">How we do it</a>
-        <a href="#fitness-hub" class="header__nav-link">Blog</a>
-        <a href="#" class="header__nav-link">Contact Us</a>
-      </nav>
-      <div class="header__bar">
-        <a href="#" class="logo">
-          <img class="logo__img logo__img--light" src="images/bodywise-logo.svg" alt="" aria-hidden="true" />
-          <span class="logo__title">Body Wisdom</span>
-        </a>
-        <button type="button" class="header__icon-btn header__menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="header-nav">
-          <svg class="header__menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
-          <svg class="header__close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <main>
     <!-- Hero: video background -->
     <section class="hero" aria-label="Hero">
       <div class="hero__video-wrap">
-        <video class="hero__video" src="images/home_hero_video.mp4" type="video/mp4" preload="none" autoplay muted loop playsinline></video>
+        <video class="hero__video" src="images/home_hero_video.webm" type="video/mp4" preload="none" autoplay muted loop playsinline></video>
       </div>
       <div class="hero__overlay"></div>
       <div class="hero__content">
@@ -173,38 +145,8 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <svg class="tagline-line-svg" preserveAspectRatio="none" aria-hidden="true">
-      <path class="tagline-line" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M271.514 2.07324C271.514 2.07324 413.383 97.452 438.514 171.073C503.547 361.588 4.39131 244.774 2.51419 446.073C1.25779 580.807 83.5771 655.882 194.014 733.073C484.608 936.188 552.643 160.079 907.014 171.073C1175.85 179.414 1238.81 599.166 1497.51 525.573C1702.72 467.2 1839.51 99.5732 1839.51 99.5732" />
-    </svg>
-    <div class="tagline-wrap">
-      <div class="tagline">
-        <div class="tagline-item tagline-item--listen">
-          <img src="images/Listen.png" alt="Listen" class="tagline-img" />
-        </div>
-        <div class="tagline-item tagline-item--to-your">
-          <img src="images/To YOUR.png" alt="To Your" class="tagline-img" />
-        </div>
-        <div class="tagline-item tagline-item--body">
-          <img src="images/Body.png" alt="Body" class="tagline-img" />
-        </div>
-      </div>
-      <p class="tagline-follow" aria-label="Follow us!">Follow us!</p>
-    </div>
-    <div class="footer__social">
-      <a href="#" class="footer__social-btn footer__social-btn--insta" target="_blank" rel="noopener" aria-label="Instagram">
-        <span class="footer__social-label">IG</span>
-      </a>
-      <a href="#" class="footer__social-btn footer__social-btn--fb" target="_blank" rel="noopener" aria-label="Facebook">
-        <span class="footer__social-label">FB</span>
-      </a>
-      <a href=#" class="footer__social-btn footer__social-btn--yt" target="_blank" rel="noopener" aria-label="YouTube">
-        <span class="footer__social-label">YT</span>
-      </a>
-    </div>
-    <p class="footer__cta">Keep up with all the latest</p>
-  </footer>
+  <div id="footer-placeholder"></div>
 
-  <script src="script.js"></script>
+  <script src="includes.js"></script>
 </body>
 </html>
