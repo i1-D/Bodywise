@@ -11,10 +11,20 @@
 
   var CLUBS_SCROLL_LENGTH = 3;
 
+  function preventScroll(e) {
+    e.preventDefault();
+  }
+
   function setMenuOpen(open) {
     if (!header || !headerNav) return;
     header.classList.toggle('header--menu-open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      document.addEventListener('wheel', preventScroll, { passive: false });
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+    } else {
+      document.removeEventListener('wheel', preventScroll);
+      document.removeEventListener('touchmove', preventScroll);
+    }
     if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     headerNav.setAttribute('aria-hidden', open ? 'false' : 'true');
     if (menuBtn) menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');

@@ -62,6 +62,20 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   overflow-x: hidden;
+  cursor: url('images/cursor.svg') 12 12, auto;
+}
+
+/* Use custom cursor on interactive elements (fallback: pointer) */
+a,
+button,
+[role="button"],
+.header__icon-btn,
+.header__nav-link,
+.header__menu-btn,
+.footer__social-btn,
+.clubs__link,
+.logo {
+  cursor: url('images/cursor.svg') 12 12, pointer;
 }
 
 img {
