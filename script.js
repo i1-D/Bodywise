@@ -94,7 +94,7 @@
     if (!followEl || followEl.querySelector('.footer__follow-char')) return;
     var text = followEl.textContent;
     followEl.textContent = '';
-    var baseDelay = 4;
+    var baseDelay = 2;
     var delayStep = 0.06;
     for (var i = 0; i < text.length; i++) {
       var span = document.createElement('span');
@@ -106,6 +106,14 @@
     }
   }
 
+  function initFooterLine() {
+    var footer = document.querySelector('.footer');
+    var path = document.querySelector('.footer__line');
+    if (!footer || !path) return;
+    var len = path.getTotalLength();
+    footer.style.setProperty('--footer-line-length', String(len));
+  }
+
   function initTaglineInView() {
     var wrap = document.querySelector('.footer__tagline-wrap');
     if (!wrap) return;
@@ -114,6 +122,8 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             wrap.classList.add('footer__tagline-wrap--in-view');
+            var footer = wrap.closest('.footer');
+            if (footer) footer.classList.add('footer--in-view');
           }
         });
       },
@@ -125,6 +135,7 @@
   window.addEventListener('load', function () {
     onScroll();
     initFollowChars();
+    initFooterLine();
     initTaglineInView();
     requestAnimationFrame(function () {
       initClubsImages();
