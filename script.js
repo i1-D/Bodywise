@@ -2,11 +2,51 @@
   'use strict';
 
   const header = document.querySelector('.header');
+  const menuBtn = document.querySelector('.header__menu-btn');
+  const headerNav = document.getElementById('header-nav');
+  const headerOverlay = document.getElementById('header-overlay');
   const clubsSection = document.querySelector('.clubs');
   const clubsPin = document.querySelector('.clubs__pin');
   const clubImgs = document.querySelectorAll('.clubs__cell[data-club-img]');
 
   var CLUBS_SCROLL_LENGTH = 3;
+
+  function setMenuOpen(open) {
+    if (!header || !headerNav) return;
+    header.classList.toggle('header--menu-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (menuBtn) menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    headerNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (menuBtn) menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (headerOverlay) headerOverlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
+  function initMenu() {
+    if (!menuBtn || !headerNav) return;
+    menuBtn.addEventListener('click', function () {
+      setMenuOpen(!header.classList.contains('header--menu-open'));
+    });
+    headerNav.querySelectorAll('.header__nav-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        closeMenu();
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header && header.classList.contains('header--menu-open')) {
+        closeMenu();
+      }
+    });
+    if (headerOverlay) {
+      headerOverlay.addEventListener('click', closeMenu);
+    }
+  }
+
+  initMenu();
+
   var imageData = [];
 
   function buildStackState(n) {
@@ -47,7 +87,7 @@
         startRot: 0,
         endX: stack.x,
         endY: stack.y,
-        endScale: 2.5,
+        endScale: 2,
         endRot: stack.rot
       };
     });

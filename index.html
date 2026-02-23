@@ -10,23 +10,33 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="header__bar">
-      <button type="button" class="header__icon-btn header__menu-btn" aria-label="Open menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
-      <a href="#" class="logo">Body Wisdom</a>
-      <a href="https://join.phive.pt/" class="header__icon-btn header__join-btn" aria-label="Join Phive" target="_blank" rel="noopener">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-      </a>
+  <header class="header" id="header">
+    <div class="header__overlay" id="header-overlay" aria-hidden="true"></div>
+    <div class="header__wrap">
+      <nav class="header__nav" id="header-nav" aria-label="Main" aria-hidden="true">
+        <a href="#" class="header__nav-link">Homepage</a>
+        <a href="#clubs" class="header__nav-link">About Us</a>
+        <a href="#fitness-hub" class="header__nav-link">How we do it</a>
+        <a href="#fitness-hub" class="header__nav-link">Blog</a>
+        <a href="#" class="header__nav-link">Contact Us</a>
+      </nav>
+      <div class="header__bar">
+        <a href="#" class="logo">
+          <img class="logo__img logo__img--light" src="images/bodywise-logo.svg" alt="" aria-hidden="true" />
+          <span class="logo__title">Body Wisdom</span>
+        </a>
+        <button type="button" class="header__icon-btn header__menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="header-nav">
+          <svg class="header__menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg class="header__close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -108,8 +118,9 @@
           </div>
         </div>
         <div class="clubs__content">
-          <h2 class="clubs__title">Body Wisdom</h2>
-          <p class="clubs__subtitle">Choose your club</p>
+          <div class="clubs__logo-wrap">
+            <img class="clubs__logo" src="images/bodywise-logo.svg" alt="Body Wisdom" />
+          </div>
           <div class="clubs__cta">
             <a href="#visit" class="clubs__link">Schedule a visit</a>
           </div>
@@ -117,7 +128,6 @@
       </div>
     </section>
 
-    <!-- What you can find at Phive Clubs -->
     <section class="features" id="fitness-hub">
       <table class="features__table">
         <thead>
