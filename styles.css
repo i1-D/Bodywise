@@ -358,6 +358,182 @@ a:hover {
   100% { transform: translateX(-50%); }
 }
 
+/* Activate: footer line + tagline (same animations when in view) */
+.activate {
+  position: relative;
+  background: #000;
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  min-height: 50vh;
+}
+
+.activate__line-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 80px;
+  color: var(--color-primary);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.activate--in-view .activate__line-svg {
+  animation: footerLineDrift 6s ease-in-out infinite;
+}
+
+.activate__line-svg .activate__line {
+  stroke: var(--color-primary);
+  stroke-dasharray: var(--activate-line-length, 3000);
+  stroke-dashoffset: var(--activate-line-length, 3000);
+}
+
+.activate--in-view .activate__line {
+  animation: footerLineDraw 1.6s ease-out forwards, footerLineFloat 9s ease-in-out 1.6s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activate__line-svg .activate__line {
+    stroke-dashoffset: 0;
+  }
+  .activate--in-view .activate__line {
+    animation: footerLineFloat 9s ease-in-out infinite;
+  }
+  .activate--in-view .activate__line-svg {
+    animation: footerLineDrift 6s ease-in-out infinite;
+  }
+}
+
+.activate__tagline-wrap {
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.activate__tagline {
+  position: relative;
+  z-index: 1;
+  min-height: calc(32vw + 8rem);
+}
+
+.activate__tagline-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activate__tagline-item--listen {
+  top: 0;
+  z-index: 3;
+  opacity: 0;
+  transform: scale(0);
+  animation: none;
+}
+
+.activate__tagline-item--to-your {
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+  animation: none;
+}
+
+.activate__tagline-item--body {
+  top: 0;
+  z-index: 1;
+  transform-origin: center top;
+  opacity: 0;
+  transform: scaleY(0.2);
+  animation: none;
+}
+
+.activate__tagline-wrap--in-view .activate__tagline-item--listen {
+  animation: footerTaglineListen 0.6s ease-out forwards;
+}
+
+.activate__tagline-wrap--in-view .activate__tagline-item--to-your {
+  animation: footerTaglineToYour 0.4s ease-out 1.2s forwards;
+}
+
+.activate__tagline-wrap--in-view .activate__tagline-item--body {
+  animation: footerTaglineBody 1s ease-out 0.6s forwards;
+}
+
+.activate__tagline-item--body .activate__tagline-img {
+  transform-origin: center top;
+}
+
+.activate__tagline-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: clamp(10rem, 20vh, 15rem);
+  min-height: 120px;
+  margin: 0;
+  padding: 0;
+}
+
+.activate__follow {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%) rotate(-6.583deg);
+  margin: 0;
+  font-family: 'Edosz', cursive;
+  font-size: clamp(3rem, 5vw, 7rem);
+  font-weight: normal;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.activate__follow-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.3em);
+  animation: none;
+}
+
+.activate__follow-char--space {
+  min-width: 0.35em;
+}
+
+.activate__tagline-wrap--in-view .activate__follow-char {
+  animation: footerFollowChar 0.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activate__tagline-item--listen,
+  .activate__tagline-item--to-your,
+  .activate__tagline-item--body {
+    animation: none;
+  }
+  .activate__tagline-item--listen {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .activate__tagline-item--to-your {
+    top: 33.333%;
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+  .activate__tagline-item--body {
+    top: 56%;
+    transform: translateY(-50%) scaleY(1);
+    opacity: 1;
+  }
+  .activate__follow-char {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Clubs: pinned section, images move to stacked center on scroll */
 .clubs {
   position: relative;
@@ -567,12 +743,7 @@ a:hover {
 
 .footer__tagline-wrap {
   position: relative;
-  margin: 0  auto;
   z-index: 1;
-}
-
-.footer__line {
-  /* Float runs only after draw when .footer--in-view */
 }
 
 @keyframes footerLineDrift {
@@ -723,8 +894,8 @@ a:hover {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(100%, 400px);
-  min-width: 20vw;
+  max-height: clamp(10rem, 20vh, 15rem);
+  min-height: 120px;
   margin: 0;
   padding: 0;
 }

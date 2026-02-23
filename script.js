@@ -130,46 +130,63 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   function initFollowChars() {
-    var followEl = document.querySelector('.footer__follow');
-    if (!followEl || followEl.querySelector('.footer__follow-char')) return;
-    var text = followEl.textContent;
-    followEl.textContent = '';
+    var followEls = document.querySelectorAll('.footer__follow, .activate__follow');
     var baseDelay = 2;
     var delayStep = 0.06;
-    for (var i = 0; i < text.length; i++) {
-      var span = document.createElement('span');
-      span.className = 'footer__follow-char' + (text[i] === ' ' ? ' footer__follow-char--space' : '');
-      span.setAttribute('aria-hidden', 'true');
-      span.textContent = text[i];
-      span.style.animationDelay = (baseDelay + i * delayStep) + 's';
-      followEl.appendChild(span);
-    }
+    followEls.forEach(function (followEl) {
+      if (!followEl || followEl.querySelector('.footer__follow-char') || followEl.querySelector('.activate__follow-char')) return;
+      var isActivate = followEl.classList.contains('activate__follow');
+      var charClass = isActivate ? 'activate__follow-char' : 'footer__follow-char';
+      var spaceClass = isActivate ? 'activate__follow-char--space' : 'footer__follow-char--space';
+      var text = followEl.textContent;
+      followEl.textContent = '';
+      for (var i = 0; i < text.length; i++) {
+        var span = document.createElement('span');
+        span.className = charClass + (text[i] === ' ' ? ' ' + spaceClass : '');
+        span.setAttribute('aria-hidden', 'true');
+        span.textContent = text[i];
+        span.style.animationDelay = (baseDelay + i * delayStep) + 's';
+        followEl.appendChild(span);
+      }
+    });
   }
 
   function initFooterLine() {
     var footer = document.querySelector('.footer');
-    var path = document.querySelector('.footer__line');
-    if (!footer || !path) return;
-    var len = path.getTotalLength();
-    footer.style.setProperty('--footer-line-length', String(len));
+    var footerPath = document.querySelector('.footer__line');
+    if (footer && footerPath) {
+      footer.style.setProperty('--footer-line-length', String(footerPath.getTotalLength()));
+    }
+    var activate = document.querySelector('.activate');
+    var activatePath = document.querySelector('.activate__line');
+    if (activate && activatePath) {
+      activate.style.setProperty('--activate-line-length', String(activatePath.getTotalLength()));
+    }
   }
 
   function initTaglineInView() {
-    var wrap = document.querySelector('.footer__tagline-wrap');
-    if (!wrap) return;
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
+          if (!entry.isIntersecting) return;
+          var wrap = entry.target;
+          if (wrap.classList.contains('footer__tagline-wrap')) {
             wrap.classList.add('footer__tagline-wrap--in-view');
             var footer = wrap.closest('.footer');
             if (footer) footer.classList.add('footer--in-view');
+          } else if (wrap.classList.contains('activate__tagline-wrap')) {
+            wrap.classList.add('activate__tagline-wrap--in-view');
+            var activate = wrap.closest('.activate');
+            if (activate) activate.classList.add('activate--in-view');
           }
         });
       },
       { threshold: 0.15, rootMargin: '0px' }
     );
-    observer.observe(wrap);
+    var footerWrap = document.querySelector('.footer__tagline-wrap');
+    if (footerWrap) observer.observe(footerWrap);
+    var activateWrap = document.querySelector('.activate__tagline-wrap');
+    if (activateWrap) observer.observe(activateWrap);
   }
 
   window.addEventListener('load', function () {
