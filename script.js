@@ -88,8 +88,44 @@
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  function initFollowChars() {
+    var followEl = document.querySelector('.footer__follow');
+    if (!followEl || followEl.querySelector('.footer__follow-char')) return;
+    var text = followEl.textContent;
+    followEl.textContent = '';
+    var baseDelay = 4;
+    var delayStep = 0.06;
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.className = 'footer__follow-char' + (text[i] === ' ' ? ' footer__follow-char--space' : '');
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = text[i];
+      span.style.animationDelay = (baseDelay + i * delayStep) + 's';
+      followEl.appendChild(span);
+    }
+  }
+
+  function initTaglineInView() {
+    var wrap = document.querySelector('.footer__tagline-wrap');
+    if (!wrap) return;
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            wrap.classList.add('footer__tagline-wrap--in-view');
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px' }
+    );
+    observer.observe(wrap);
+  }
+
   window.addEventListener('load', function () {
     onScroll();
+    initFollowChars();
+    initTaglineInView();
     requestAnimationFrame(function () {
       initClubsImages();
       updateClubsProgress();

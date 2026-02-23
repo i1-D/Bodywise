@@ -477,25 +477,41 @@ a:hover {
   align-items: center;
 }
 
+/* Tagline animations run only when section is in view */
 .footer__tagline-item--listen {
   top: 0;
   z-index: 3;
-  animation: footerTaglineListen 1.2s ease-out forwards;
+  opacity: 0;
+  transform: scale(0);
+  animation: none;
 }
 
 .footer__tagline-item--to-your {
   top: 0;
   z-index: 2;
   opacity: 0;
-  animation: footerTaglineToYour 0.8s ease-out 2.3s forwards;
+  animation: none;
 }
 
 .footer__tagline-item--body {
   top: 0;
   z-index: 1;
   transform-origin: center top;
-  animation: footerTaglineBody 2s ease-out 1.2s forwards;
   opacity: 0;
+  transform: scaleY(0.2);
+  animation: none;
+}
+
+.footer__tagline-wrap--in-view .footer__tagline-item--listen {
+  animation: footerTaglineListen 1.2s ease-out forwards;
+}
+
+.footer__tagline-wrap--in-view .footer__tagline-item--to-your {
+  animation: footerTaglineToYour 0.8s ease-out 2.3s forwards;
+}
+
+.footer__tagline-wrap--in-view .footer__tagline-item--body {
+  animation: footerTaglineBody 2s ease-out 1.2s forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -591,7 +607,7 @@ a:hover {
   position: absolute;
   left: 50%;
   top: 45%;
-  transform: translate(-50%, -50%)  rotate(-6.583deg);
+  transform: translate(-50%, -50%) rotate(-6.583deg);
   margin: 0;
   font-family: 'Edosz', cursive;
   font-size: clamp(3rem, 5vw, 7rem);
@@ -601,6 +617,36 @@ a:hover {
   white-space: nowrap;
   pointer-events: none;
   z-index: 2;
+}
+
+.footer__follow-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.3em);
+  animation: none;
+}
+
+.footer__follow-char--space {
+  min-width: 0.35em;
+}
+
+.footer__tagline-wrap--in-view .footer__follow-char {
+  animation: footerFollowChar 0.4s ease-out forwards;
+}
+
+@keyframes footerFollowChar {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__follow-char {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .footer__social {
