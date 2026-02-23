@@ -130,19 +130,16 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   function initFollowChars() {
-    var followEls = document.querySelectorAll('.footer__follow, .activate__follow');
+    var followEls = document.querySelectorAll('.tagline-follow');
     var baseDelay = 2;
     var delayStep = 0.06;
     followEls.forEach(function (followEl) {
-      if (!followEl || followEl.querySelector('.footer__follow-char') || followEl.querySelector('.activate__follow-char')) return;
-      var isActivate = followEl.classList.contains('activate__follow');
-      var charClass = isActivate ? 'activate__follow-char' : 'footer__follow-char';
-      var spaceClass = isActivate ? 'activate__follow-char--space' : 'footer__follow-char--space';
+      if (!followEl || followEl.querySelector('.tagline-follow-char')) return;
       var text = followEl.textContent;
       followEl.textContent = '';
       for (var i = 0; i < text.length; i++) {
         var span = document.createElement('span');
-        span.className = charClass + (text[i] === ' ' ? ' ' + spaceClass : '');
+        span.className = 'tagline-follow-char' + (text[i] === ' ' ? ' tagline-follow-char--space' : '');
         span.setAttribute('aria-hidden', 'true');
         span.textContent = text[i];
         span.style.animationDelay = (baseDelay + i * delayStep) + 's';
@@ -151,17 +148,11 @@
     });
   }
 
-  function initFooterLine() {
-    var footer = document.querySelector('.footer');
-    var footerPath = document.querySelector('.footer__line');
-    if (footer && footerPath) {
-      footer.style.setProperty('--footer-line-length', String(footerPath.getTotalLength()));
-    }
-    var activate = document.querySelector('.activate');
-    var activatePath = document.querySelector('.activate__line');
-    if (activate && activatePath) {
-      activate.style.setProperty('--activate-line-length', String(activatePath.getTotalLength()));
-    }
+  function initTaglineLine() {
+    document.querySelectorAll('.footer .tagline-line, .activate .tagline-line').forEach(function (path) {
+      var section = path.closest('.footer') || path.closest('.activate');
+      if (section) section.style.setProperty('--tagline-line-length', String(path.getTotalLength()));
+    });
   }
 
   function initTaglineInView() {
@@ -170,29 +161,20 @@
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
           var wrap = entry.target;
-          if (wrap.classList.contains('footer__tagline-wrap')) {
-            wrap.classList.add('footer__tagline-wrap--in-view');
-            var footer = wrap.closest('.footer');
-            if (footer) footer.classList.add('footer--in-view');
-          } else if (wrap.classList.contains('activate__tagline-wrap')) {
-            wrap.classList.add('activate__tagline-wrap--in-view');
-            var activate = wrap.closest('.activate');
-            if (activate) activate.classList.add('activate--in-view');
-          }
+          wrap.classList.add('tagline-wrap--in-view');
+          var section = wrap.closest('.footer') || wrap.closest('.activate');
+          if (section) section.classList.add(section.classList.contains('footer') ? 'footer--in-view' : 'activate--in-view');
         });
       },
-      { threshold: 0.15, rootMargin: '0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 80px 0px' }
     );
-    var footerWrap = document.querySelector('.footer__tagline-wrap');
-    if (footerWrap) observer.observe(footerWrap);
-    var activateWrap = document.querySelector('.activate__tagline-wrap');
-    if (activateWrap) observer.observe(activateWrap);
+    document.querySelectorAll('.tagline-wrap').forEach(function (el) { observer.observe(el); });
   }
 
   window.addEventListener('load', function () {
     onScroll();
     initFollowChars();
-    initFooterLine();
+    initTaglineLine();
     initTaglineInView();
     requestAnimationFrame(function () {
       initClubsImages();
