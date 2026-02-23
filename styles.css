@@ -467,7 +467,6 @@ a:hover {
   transform: scale(1.02);
 }
 
-/* Features: What you can find at Phive Clubs — table */
 .features {
   padding: var(--space-3xl) var(--space-lg);
   max-width: 1200px;
