@@ -165,6 +165,16 @@
     });
   }
 
+  function initAboutHeroUnderline() {
+    var path = document.querySelector('.about-hero__underline-path');
+    if (!path) return;
+    var svg = path.closest('.about-hero__underline-svg');
+    if (!svg) return;
+    var length = path.getTotalLength();
+    svg.style.setProperty('--about-hero-underline-length', String(length));
+    svg.classList.add('about-hero__underline-svg--draw');
+  }
+
   function initTaglineInView() {
     var observer = new IntersectionObserver(
       function (entries) {
@@ -186,6 +196,7 @@
   initFollowChars();
   initTaglineLine();
   initTaglineInView();
+  initAboutHeroUnderline();
 
   window.addEventListener('load', function () {
     onScroll();

@@ -969,6 +969,28 @@ a:hover {
   pointer-events: none;
 }
 
+.about-hero__underline-path {
+  stroke-dasharray: var(--about-hero-underline-length, 1000);
+  stroke-dashoffset: var(--about-hero-underline-length, 1000);
+}
+
+.about-hero__underline-svg--draw .about-hero__underline-path {
+  animation: aboutHeroUnderlineDraw 0.9s ease-out forwards;
+}
+
+@keyframes aboutHeroUnderlineDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero__underline-path {
+    stroke-dashoffset: 0;
+  }
+  .about-hero__underline-svg--draw .about-hero__underline-path {
+    animation: none;
+  }
+}
+
 .about-hero__text {
   display: flex;
   flex-direction: column;
