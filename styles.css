@@ -481,21 +481,21 @@ a:hover {
   gap: var(--space-md);
 }
 
-.clubs__link {
+.clubs__link, .about-hero__cta {
   font-family: var(--font-moonwalk);
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  width: fit-content;
   padding: var(--space-md) var(--space-xl);
   background: var(--color-primary);
   color: var(--color-bg);
   border: none;
-  border-radius: 9999px;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
-.clubs__link:hover {
+.clubs__link:hover, .about-hero__cta:hover {
   opacity: 0.92;
   transform: scale(1.02);
 }
@@ -568,7 +568,7 @@ a:hover {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: clamp(140px, 70vh, 90vh);
   min-height: 80px;
   color: var(--color-primary);
   pointer-events: none;
@@ -921,7 +921,6 @@ a:hover {
   display: flex;
   align-items: stretch;
   background: linear-gradient(120deg, #1a3d38 0%, #0f2926 35%, var(--color-bg) 60%, var(--color-bg) 100%);
-  padding-top: var(--header-height, 72px);
 }
 
 .about-hero__inner {
@@ -932,7 +931,7 @@ a:hover {
   margin: 0 auto;
   align-items: center;
   gap: var(--space-2xl);
-  padding: var(--space-2xl) var(--space-lg);
+  padding: var(--space-sm) var(--space-3xl);
 }
 
 .about-hero__content {
@@ -969,32 +968,12 @@ a:hover {
 }
 
 .about-hero__text p {
-  font-size: 1rem;
+  font-family: var(--font-dejavu);
+  font-weight: 400;
+  font-size: 0.875rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
   margin: 0;
-}
-
-.about-hero__cta {
-  display: inline-block;
-  width: fit-content;
-  font-family: var(--font-moonwalk);
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #fff;
-  background: linear-gradient(135deg, #269085 0%, #1e7269 100%);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-  border: none;
-}
-
-.about-hero__cta:hover {
-  opacity: 0.92;
-  transform: scale(1.02);
 }
 
 .about-hero__media {
