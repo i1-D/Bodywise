@@ -954,11 +954,19 @@ a:hover {
   gap: 0.15em;
 }
 
-.about-hero__title-line--underline {
+.about-hero__title-word-with-underline {
+  position: relative;
   display: inline-block;
-  border-bottom: 4px solid var(--color-primary);
-  padding-bottom: 0.05em;
-  width: fit-content;
+}
+
+.about-hero__underline-svg {
+  position: absolute;
+  left: 0;
+  bottom: -0.2em;
+  width: 100%;
+  height: 0.35em;
+  color: var(--color-primary);
+  pointer-events: none;
 }
 
 .about-hero__text {
@@ -1001,10 +1009,6 @@ a:hover {
 
   .about-hero__content {
     max-width: none;
-  }
-
-  .about-hero__title-line--underline {
-    margin: 0 auto;
   }
 
   .about-hero__cta {
