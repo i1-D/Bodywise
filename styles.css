@@ -1079,6 +1079,23 @@ a:hover {
   opacity: 0.6;
   position: relative;
   z-index: 0;
+  animation: blogHeroEmpowerLand 1s ease-out both, blogHeroEmpowerFade 0.5s ease-out 1s forwards;
+}
+
+@keyframes blogHeroEmpowerLand {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes blogHeroEmpowerFade {
+  0% { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 
 .blog-hero__word--front {
@@ -1088,6 +1105,26 @@ a:hover {
   bottom: 0;
   z-index: 1;
   transform: translateY(0.35em);
+}
+
+.blog-hero__char {
+  opacity: 0;
+  animation: blogHeroNourishChar 0.2s ease-out forwards;
+}
+
+@keyframes blogHeroNourishChar {
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-hero__word--back {
+    animation: none;
+    opacity: 0.6;
+  }
+  .blog-hero__char {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .blog-articles {

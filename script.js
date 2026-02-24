@@ -175,6 +175,23 @@
     svg.classList.add('about-hero__underline-svg--draw');
   }
 
+  function initBlogHero() {
+    var frontWord = document.querySelector('.blog-hero__word--front');
+    if (!frontWord || frontWord.querySelector('.blog-hero__char')) return;
+    var text = frontWord.textContent;
+    frontWord.textContent = '';
+    var startDelay = 1;
+    var delayStep = 0.12;
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.className = 'blog-hero__char';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = text[i];
+      span.style.animationDelay = (startDelay + i * delayStep) + 's';
+      frontWord.appendChild(span);
+    }
+  }
+
   function initTaglineInView() {
     var observer = new IntersectionObserver(
       function (entries) {
@@ -197,6 +214,7 @@
   initTaglineLine();
   initTaglineInView();
   initAboutHeroUnderline();
+  initBlogHero();
 
   window.addEventListener('load', function () {
     onScroll();
