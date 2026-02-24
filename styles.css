@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Edosz';
-  src: url('/fonts/edosz.woff2') format('woff2');
+  src: url('/Bodywise/fonts/edosz.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Moon_walk';
-  src: url('/fonts/Moon_walk.woff2') format('woff2');
+  src: url('/Bodywise/fonts/Moon_walk.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'DejaVuSans';
-  src: url('/fonts/DejaVuSans-Bold.woff2') format('woff2');
+  src: url('/Bodywise/fonts/DejaVuSans-Bold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'Dortmund';
-  src: url('/fonts/Dortmund-ExtraBold.woff2') format('woff2');
+  src: url('/Bodywise/fonts/Dortmund-ExtraBold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
