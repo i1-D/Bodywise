@@ -1254,7 +1254,7 @@ a:hover {
 .contact-section__text {
   font-family: var(--font-dejavu);
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.2vw, 1.5rem);
   line-height: 1.5;
   color: #fff;
   margin: 0;
@@ -1395,7 +1395,7 @@ a:hover {
 
 
 .how-card__header {
-  font-family: var(--font-moonwalk);
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 300;
   text-transform: uppercase;
