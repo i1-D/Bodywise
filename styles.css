@@ -486,7 +486,7 @@ a:hover {
   width: fit-content;
   padding: var(--space-md) var(--space-xl);
   background: var(--color-primary);
-  color: var(--color-bg);
+  color: #fff;
   border: none;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
