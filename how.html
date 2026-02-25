@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link rel="preload" as="font" href="/Bodywise/fonts/edosz.woff2" crossorigin>
-  <link rel="preload" as="font" href="/Bodywise/fonts/Moon_walk.woff2" crossorigin>
-  <link rel="preload" as="font" href="/Bodywise/fonts/DejaVuSans-Bold.woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/edosz.woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/moon_walk.woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/DejaVuSans-Bold.woff2" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.0/swiper-bundle.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -114,19 +114,20 @@
         var section = document.getElementById('how-slider-section');
         if (!section || !howSwiper) return;
 
-        var sliderInFocus = false;
-        var observer = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              sliderInFocus = entry.isIntersecting;
-            });
-          },
-          { threshold: 0.4, rootMargin: '0px' }
-        );
-        observer.observe(section);
+        function isSliderInView() {
+          var rect = section.getBoundingClientRect();
+          var vh = window.innerHeight;
+          var scrollTop = window.scrollY || document.documentElement.scrollTop;
+          if (scrollTop <= 0) return false;
+          var sectionTopInView = rect.top <= vh * 0.2;
+          var sectionStillVisible = rect.bottom > vh * 0.2;
+          return sectionTopInView && sectionStillVisible;
+        }
 
         function onWheel(e) {
-          if (!sliderInFocus || !howSwiper) return;
+          if (!howSwiper) return;
+          if (!isSliderInView()) return;
+
           var delta = e.deltaY;
           if (delta > 0) {
             if (!howSwiper.isEnd) {
