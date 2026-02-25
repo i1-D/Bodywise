@@ -80,6 +80,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -90,6 +91,11 @@ body {
   background: var(--color-bg);
   overflow-x: hidden;
   cursor: url('images/cursor.svg') 12 12, auto;
+}
+
+main {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Use custom cursor on interactive elements (fallback: pointer) */
@@ -1750,6 +1756,7 @@ a:hover {
   .about-hero__inner {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 0;
   }
 
   .about-hero__content {
@@ -1933,7 +1940,7 @@ a:hover {
 
   .about-hero__inner {
     padding: var(--space-lg) var(--space-md);
-    gap: var(--space-lg);
+    gap: 0;
   }
 
   .about-hero__title {
