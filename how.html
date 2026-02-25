@@ -102,10 +102,15 @@
         if (!document.querySelector('.how-swiper') || !window.Swiper) return;
         if (howSwiper) return;
         howSwiper = new window.Swiper('.how-swiper', {
-          slidesPerView: '4',
-          spaceBetween: 24,
           loop: false,
-          breakpoints: { 640: { spaceBetween: 32 }, 1024: { spaceBetween: 40 } }
+          spaceBetween: 24,
+          breakpoints: { 
+            480: { slidesPerView: 1.5, spaceBetween: 24 },
+            600: { slidesPerView: 2.5, spaceBetween: 24 }, 
+            900: { slidesPerView: 3.5, spaceBetween: 32 }, 
+            1200: { slidesPerView: 4.5, spaceBetween: 40 }, 
+            1920: { slidesPerView: 5.5, spaceBetween: 48 } 
+          }
         });
         initHowScrollCapture();
       }
