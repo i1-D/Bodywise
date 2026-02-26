@@ -191,11 +191,13 @@ a:hover {
   background: rgba(4, 16, 3, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #08201d;
   transition: background var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .header.scrolled .header__bar {
   background: var(--color-primary);
+  border-color: #269085;
   opacity: 0.95;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
