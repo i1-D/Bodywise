@@ -93,9 +93,13 @@ body {
   cursor: url('images/cursor.svg') 12 12, auto;
 }
 
+@supports (overflow-x: clip) {
+  html, body { overflow-x: clip; }
+}
+
 main {
-  overflow-x: hidden;
   max-width: 100%;
+  /* Do not set overflow on main: it breaks position:sticky in .clubs__pin */
 }
 
 /* Use custom cursor on interactive elements (fallback: pointer) */
@@ -1539,6 +1543,11 @@ a:hover {
     --tagline-wrap-margin-bottom: 10vh;
   }
 
+  .clubs__grid {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
   .about-hero__inner {
     max-width: 100%;
     padding: var(--space-2xl) var(--space-xl);
@@ -1597,8 +1606,10 @@ a:hover {
   }
 
   .clubs__grid {
-    gap: 6px;
+    gap: 8px;
     padding: var(--space-sm);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
   }
 
   .clubs__logo {
@@ -1706,6 +1717,15 @@ a:hover {
 
   .hero {
     min-height: 560px;
+  }
+
+  .clubs__grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .clubs__grid .clubs__cell:nth-child(n+31) {
+    display: none;
   }
 
   .clubs__cta {
@@ -1866,8 +1886,14 @@ a:hover {
   }
 
   .clubs__grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     gap: 4px;
     padding: var(--space-xs);
+  }
+
+  .clubs__grid .clubs__cell:nth-child(n+25) {
+    display: none;
   }
 
   .clubs__logo {

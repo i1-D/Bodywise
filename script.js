@@ -106,7 +106,7 @@
   function updateClubsProgress() {
     if (!clubsSection || !clubImgs.length || !imageData.length) return;
     var scrollY = window.scrollY || window.pageYOffset;
-    var sectionTop = clubsSection.offsetTop;
+    var sectionTop = clubsSection.getBoundingClientRect().top + scrollY;
     var viewHeight = window.innerHeight;
     var start = sectionTop;
     var scrollLength = viewHeight * CLUBS_SCROLL_LENGTH;
@@ -138,6 +138,12 @@
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* Initialize clubs as soon as DOM is ready (script runs after body); also on load/resize */
+  if (clubsSection && clubImgs.length) {
+    initClubsImages();
+    updateClubsProgress();
+  }
 
   function initFollowChars() {
     var followEls = document.querySelectorAll('.tagline-follow');
@@ -218,12 +224,13 @@
 
   window.addEventListener('load', function () {
     onScroll();
-    requestAnimationFrame(function () {
+    if (clubsSection && clubImgs.length) {
       initClubsImages();
       updateClubsProgress();
-    });
+    }
   });
   window.addEventListener('resize', function () {
+    if (!clubsSection || !clubImgs.length) return;
     imageData = [];
     initClubsImages();
     updateClubsProgress();
