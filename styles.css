@@ -57,7 +57,7 @@
   --space-xl: 3rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
-  --container-max: 15.625vw;
+  --container-max: 20.625vw;
   --header-height: 72px;
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -176,7 +176,7 @@ a:hover {
   position: relative;
   z-index: 99;
   width: 100%;
-  max-width: clamp(320px, var(--container-max), 380px);
+  max-width: clamp(360px, var(--container-max), 420px);
   pointer-events: auto;
 }
 
@@ -1708,8 +1708,12 @@ a:hover {
     top: auto;
   }
 
+  .header__wrap {
+    max-width: 320px;
+  }
+
   .header__bar {
-    height: 52px;
+    height: 56px;
     padding: 0 var(--space-xs);
   }
 
@@ -1905,7 +1909,7 @@ a:hover {
   }
 
   .header__bar {
-    height: 48px;
+    height: 56px;
     padding: 0 var(--space-xs);
   }
 
@@ -1917,6 +1921,10 @@ a:hover {
   .logo__img {
     height: 22px;
     max-width: 120px;
+  }
+
+  .marquee {
+    padding: var(--space-sm) 0;
   }
 
   .hero {
