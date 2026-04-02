@@ -355,13 +355,6 @@ a:hover {
   object-fit: cover;
 }
 
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 100%);
-  z-index: 1;
-}
-
 .hero__content {
   position: relative;
   z-index: 2;
