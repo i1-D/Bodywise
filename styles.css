@@ -1138,7 +1138,7 @@ a:hover {
   color: var(--color-text);
   margin: 0;
   padding: var(--space-sm) var(--space-md) 0;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .blog-card__accent {
@@ -1146,11 +1146,12 @@ a:hover {
 }
 
 .blog-card__excerpt {
-  font-size: 0.875rem;
+  font-family: var(--font-dejavu);
+  font-size: 0.8rem;
   color: var(--color-text-muted);
   margin: 0;
   padding: var(--space-xs) var(--space-md) var(--space-md);
-  line-height: 1.4;
+  line-height: 1.85;
 }
 
 /* Contact page — Get in Touch two-column section */
@@ -2060,7 +2061,7 @@ a:hover {
   }
 
   .blog-card__title {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .blog-card__excerpt {
@@ -2496,7 +2497,7 @@ a:hover {
 
 .article-pose__img {
   position: relative;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 4px;
   margin-bottom: var(--space-sm);
@@ -2504,6 +2505,15 @@ a:hover {
 
 .article-pose__img--gradient {
   background: linear-gradient(120deg, #1a3d38 0%, #0f2926 50%, #020801 100%);
+}
+
+.article-pose__img-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .article-pose__img-label {
@@ -2582,6 +2592,6 @@ a:hover {
   }
 
   .article-pose__img {
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 2 / 2;
   }
 }
