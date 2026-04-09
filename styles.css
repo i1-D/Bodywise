@@ -831,17 +831,12 @@ a:hover {
 }
 
 .footer__social-btn--insta {
-  background-image: url('images/insta_bg.webp');
+  background-image: url('images/insta.avif');
   margin-top: 72px;
 }
 
 .footer__social-btn--fb {
-  background-image: url('images/fb_bg.avif');
-}
-
-.footer__social-btn--yt {
-  background-image: url('images/yt_bg.webp');
-  margin-top: 72px;
+  background-image: url('images/fb.avif');
 }
 
 .footer__cta {
@@ -1279,6 +1274,12 @@ a:hover {
   height: 22px;
 }
 
+/* Contact page — map embed */
+.contact-map {
+  width: 100%;
+  height: 450px;
+}
+
 /* How page — hero, slider, tagline */
 .how-hero {
   position: relative;
@@ -1286,7 +1287,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0a0a url('images/insta_bg.webp') center / cover no-repeat;
+  background: #0a0a0a url('images/how.avif') center / cover no-repeat;
 }
 
 .how-hero::before {
@@ -2087,6 +2088,10 @@ a:hover {
   .contact-section__social-link {
     width: 40px;
     height: 40px;
+  }
+
+  .contact-map {
+    height: 300px;
   }
 
   .how-hero {
