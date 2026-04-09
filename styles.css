@@ -1149,23 +1149,20 @@ a:hover {
   line-height: 1.85;
 }
 
-/* Contact page — Get in Touch two-column section */
+/* Contact page — 3-row layout */
 .contact-section {
   min-height: 100vh;
   background: linear-gradient(130deg, #269085 7.68%, #08201D 29.34%, rgba(0, 1, 1, 0.60) 48.83%, rgba(0, 1, 1, 0.60) 68.99%, #195E56 94.78%);
-  padding: calc(var(--header-height, 72px) + var(--space-2xl)) var(--space-3xl);
-}
-
-.contact-section__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  padding: calc(var(--header-height, 72px) + var(--space-2xl)) var(--space-3xl) var(--space-3xl);
+  display: flex;
+  flex-direction: column;
   gap: var(--space-3xl);
-  width: 100%;
-  align-items: start;
 }
 
-.contact-section__left {
-  padding-top: var(--space-md);
+.contact-section__header {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .contact-section__title {
@@ -1178,10 +1175,123 @@ a:hover {
   margin: 0;
 }
 
-.contact-section__right {
+/* Branch cards grid */
+.contact-section__branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contact-branch {
+  background: #0b1f1c;
+  border-radius: 16px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+}
+
+.contact-branch__map {
+  width: 100%;
+  height: 16.667vw;
+  flex-shrink: 0;
+}
+
+.contact-branch__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.contact-branch__body {
+  padding: var(--space-lg) var(--space-lg) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+.contact-branch__label {
+  font-family: var(--font-dejavu);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.contact-branch__name {
+  font-family: var(--font-dortmund);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 var(--space-xs);
+  line-height: 1.1;
+}
+
+.contact-branch__address {
+  font-family: var(--font-dejavu);
+  font-size: 0.9375rem;
+  font-style: normal;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+  border-left: 2px solid var(--color-primary);
+  padding-left: var(--space-sm);
+}
+
+.contact-branch__phone {
+  margin: var(--space-xs) 0 0;
+}
+
+.contact-branch__phone a {
+  font-family: var(--font-dejavu);
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: underline;
+}
+
+.contact-branch__phone a:hover {
+  color: #fff;
+}
+
+.contact-branch__directions {
+  display: inline-block;
+  margin-top: var(--space-md);
+  align-self: flex-start;
+  font-family: var(--font-moonwalk);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  width: fit-content;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.contact-branch__directions:hover {
+  opacity: 0.92;
+  transform: scale(1.02);
+}
+
+/* Row 3: email + follow us */
+.contact-section__footer-row {
+  display: flex;
+  gap: var(--space-3xl);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
 }
 
 .contact-section__item {
@@ -1272,12 +1382,6 @@ a:hover {
 .contact-section__social-link svg {
   width: 22px;
   height: 22px;
-}
-
-/* Contact page — map embed */
-.contact-map {
-  width: 100%;
-  height: 450px;
 }
 
 /* How page — hero, slider, tagline */
@@ -1474,12 +1578,7 @@ a:hover {
   }
 
   .contact-section {
-    padding: calc(var(--header-height, 72px) + var(--space-3xl)) var(--space-3xl);
-  }
-
-  .contact-section__inner {
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: calc(var(--header-height, 72px) + var(--space-3xl)) var(--space-3xl) var(--space-3xl);
   }
 
   .contact-section__title {
@@ -1535,6 +1634,10 @@ a:hover {
     padding-left: var(--space-2xl);
     padding-right: var(--space-2xl);
   }
+
+  .contact-section__branches {
+    gap: var(--space-lg);
+  }
 }
 
 /* 1200px — desktop */
@@ -1571,6 +1674,10 @@ a:hover {
 
   .contact-section__title {
     font-size: clamp(2.75rem, 5vw, 6rem);
+  }
+
+  .contact-branch__name {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
   }
 
   .how-swiper .swiper-slide {
@@ -1654,10 +1761,7 @@ a:hover {
   }
 
   .contact-section {
-    padding: calc(var(--header-height, 72px) + var(--space-2xl)) var(--space-2xl);
-  }
-
-  .contact-section__inner {
+    padding: calc(var(--header-height, 72px) + var(--space-2xl)) var(--space-2xl) var(--space-2xl);
     gap: var(--space-2xl);
   }
 
@@ -1868,13 +1972,16 @@ a:hover {
     min-height: 200px;
   }
 
-  .contact-section__inner {
+  .contact-section__branches {
     grid-template-columns: 1fr;
-    gap: var(--space-2xl);
   }
 
   .contact-section__title {
     font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .contact-section__footer-row {
+    gap: var(--space-2xl);
   }
 
   .how-swiper .swiper-slide {
@@ -2070,7 +2177,8 @@ a:hover {
   }
 
   .contact-section {
-    padding: calc(var(--header-height, 72px) + var(--space-lg)) var(--space-md);
+    padding: calc(var(--header-height, 72px) + var(--space-lg)) var(--space-md) var(--space-lg);
+    gap: var(--space-xl);
   }
 
   .contact-section__title {
@@ -2090,8 +2198,8 @@ a:hover {
     height: 40px;
   }
 
-  .contact-map {
-    height: 300px;
+  .contact-branch__map {
+    height: 180px;
   }
 
   .how-hero {
