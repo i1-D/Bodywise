@@ -1502,6 +1502,18 @@ a:hover {
   font-style: italic;
 }
 
+/* How page — scroll-pin wrapper */
+.how-pin-wrap {
+  position: relative;
+}
+
+.how-pin-wrap .how-slider-section {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  overflow-x: clip;
+}
+
 /* ========== Responsive — breakpoints: 480, 600, 900, 1200, 1360, 1920 ========== */
 
 /* 1920px and up — full HD and larger */
@@ -1987,6 +1999,10 @@ a:hover {
   .how-swiper .swiper-slide {
     width: 85%;
     max-width: 340px;
+  }
+
+  .how-pin-wrap .how-slider-section {
+    position: static;
   }
 }
 
